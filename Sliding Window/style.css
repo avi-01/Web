@@ -14,14 +14,13 @@ body{
 .box{
     position: relative;
     box-sizing: border-box;
-    width: 18vw;
+    width: 20vw;
     height: 22vw;
     background-color: rgb(68, 68, 68);
     color: rgb(255, 255, 255);
     transition:  transform, 1s, opacity 1s;
     box-shadow:0px 2px 7px rgb(212, 212, 212);
     border-radius: 5%;
-    padding: ;
 }
 
 .left_animation {
@@ -30,7 +29,7 @@ body{
 
 @keyframes move_left {
     100%{
-        transform: translateX(-10%);
+        transform: translateX(-12%);
     }
 }
 
@@ -40,6 +39,6 @@ body{
 
 @keyframes move_right {
     100%{
-        transform: translateX(10%);
+        transform: translateX(12%);
     }
 }
