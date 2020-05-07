@@ -1,6 +1,7 @@
 body{
     background-color: cornflowerblue;
     overflow: hidden;
+    margin:0;
 }
 
 #flex {
@@ -40,5 +41,19 @@ body{
 @keyframes move_right {
     100%{
         transform: translateX(12%);
+    }
+}
+
+.apply_opacity {
+    animation: opacity_visible 250ms ease-in-out;
+}
+
+@keyframes opacity_visible {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
     }
 }

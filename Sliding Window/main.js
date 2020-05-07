@@ -4,38 +4,45 @@ var box = flex.getElementsByClassName("box");
 
 
 restoreProperty = function (k) {
+    var noBoxes = box.length;
+
+    var scaleFactor = 0.25;
+    var zIndexFactor = 1;
+    var marginFactor = -2;
+    var blurFactor = -1;
+
     var scale = 1;
     var zIndex = 1;
     var margin = 4;
-    var noBoxes = box.length;
-    
+    var blur = -1*(parseInt(noBoxes/2)*blurFactor);
+
+
+
+
     for (var i = 0; i < noBoxes; i++) {
         
         var index = i - k;
-        console.log(i,index,scale,zIndex,margin,noBoxes/2)
+        console.log(i,index,scale,zIndex,margin,blur,noBoxes/2)
 
         if(index >= 0 && index < noBoxes) {
             box[index].style.transform = "scale("+scale+")";
             box[index].style.zIndex = ""+zIndex;
             box[index].style.margin = "-"+margin+"%";
+            box[index].style.filter = "blur("+blur+"px)";
         }
 
-        if(i == parseInt(noBoxes/2)) {
-            scale -= 0.25;
-            zIndex -= 1;
-            margin += 2;
-        }
-
-        else if(i < noBoxes/2) {
-            scale += 0.25;
-            zIndex += 1;
-            margin -= 2;
+        if(i < parseInt(noBoxes/2)) {
+            scale += scaleFactor;
+            zIndex += zIndexFactor;
+            margin += marginFactor;
+            blur += blurFactor;
         } 
 
         else {
-            scale -= 0.25;
-            zIndex -= 1;
-            margin += 2;
+            scale -= scaleFactor;
+            zIndex -= zIndexFactor;
+            margin -= marginFactor;
+            blur -= blurFactor;
         }
     }
 }
@@ -48,18 +55,22 @@ function deleteBox (k) {
 
     flag = 1;
     console.log(box)
+    var index  = 0;
+    var animations = ["left_animation","right_animation"];
     
     if (k == -1) {
-        var removeTarget = box[0];
-        restoreProperty(k)
-        flex.classList.toggle("left_animation");
+        index = 0;
+        var removeTarget = box[index];
     }
 
     else {
-        var removeTarget = box[box.length - 1];
-        restoreProperty(k)
-        flex.classList.toggle("right_animation");
+        index = box.length - 1;
     }
+
+
+    var removeTarget = box[index];
+    restoreProperty(k)
+    flex.classList.toggle(animations[(index == 0) ? 0 : 1]);
     
 
     removeTarget.style.opacity = "0";
@@ -68,14 +79,18 @@ function deleteBox (k) {
 
     setTimeout(function() {
         removeTarget.parentNode.removeChild(removeTarget);
+        flex.classList.toggle(animations[(index == 0) ? 0 : 1]);
+
         if (k == -1) {
-            flex.classList.toggle("left_animation");
             flex.innerHTML += "<div class='box'>Hello this is box6</div>"
         }
         else {
-            flex.classList.toggle("right_animation");
             flex.innerHTML = "<div class='box'>Hello this is box6</div>" + flex.innerHTML;
         }
+
+        var newIndex = box.length - 1 - index;
+        box[newIndex].classList.toggle("apply_opacity")
+        setTimeout(function() { box[newIndex].classList.toggle("apply_opacity") }, 250);
 
         restoreProperty(0)
         console.log(flex)
