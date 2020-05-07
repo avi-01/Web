@@ -1,12 +1,14 @@
 body{
-    background-color: cornflowerblue;
-    overflow: hidden;
+    background-color: #546ffa;
+    overflow-x: hidden;
     margin:0;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 #flex {
     display: flex;
-    height: 600px;
+    box-sizing: border-box;
+    height: 80vh;
     align-items: center;
     justify-content: center;
     transition: all 1000ms linear;
@@ -15,13 +17,18 @@ body{
 .box{
     position: relative;
     box-sizing: border-box;
-    width: 20vw;
-    height: 22vw;
-    background-color: rgb(68, 68, 68);
-    color: rgb(255, 255, 255);
+    width: 16vw;
+    height: 40vh;
+    max-height: 22vw;
+    min-height: 16vw;
+    background-color: #545454;
+    color: rgb(195, 195, 195);
     transition:  transform, 1s, opacity 1s;
-    box-shadow:0px 2px 7px rgb(212, 212, 212);
+    /* box-shadow:0px 2px 5px rgb(212, 212, 212); */
     border-radius: 5%;
+    text-align: center;
+    padding:10px;
+    border: 3px solid #747474;
 }
 
 .left_animation {
@@ -30,7 +37,7 @@ body{
 
 @keyframes move_left {
     100%{
-        transform: translateX(-12%);
+        transform: translateX(-8%);
     }
 }
 
@@ -40,7 +47,7 @@ body{
 
 @keyframes move_right {
     100%{
-        transform: translateX(12%);
+        transform: translateX(8%);
     }
 }
 
@@ -58,4 +65,22 @@ body{
         opacity: 1;
         transform: scale(1)
     }
+}
+
+.slideButtons {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.slideButton {
+    border-radius: 25px;
+    padding: 10px 15px;
+    font-size: 120%;
+    color: white;
+    text-decoration: none;
+    transition:  transform, 1s, opacity 1s;
+    background: radial-gradient( #546ffa 20%,rgb(22, 94, 228) 80%);
+    box-shadow:0px 2px 3px rgb(212, 212, 212);
+    border: none;
 }

@@ -1,6 +1,6 @@
 var flex = document.getElementById("flex");
-
 var box = flex.getElementsByClassName("box");
+var boxNumber = 6;
 
 
 restoreProperty = function (k) {
@@ -82,11 +82,12 @@ function deleteBox (k) {
         flex.classList.toggle(animations[(index == 0) ? 0 : 1]);
 
         if (k == -1) {
-            flex.innerHTML += "<div class='box'>Hello this is box6</div>"
+            flex.innerHTML += "<div class='box'>This is box"+boxNumber+"</div>"
         }
         else {
-            flex.innerHTML = "<div class='box'>Hello this is box6</div>" + flex.innerHTML;
+            flex.innerHTML = "<div class='box'>This is box"+boxNumber+"</div>" + flex.innerHTML;
         }
+        boxNumber++;
 
         var newIndex = box.length - 1 - index;
         box[newIndex].classList.toggle("apply_opacity")
