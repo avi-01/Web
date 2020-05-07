@@ -1,0 +1,33 @@
+body{
+    background-color: cornflowerblue;
+}
+
+#flex {
+    display: flex;
+    height: 600px;
+    align-items: center;
+    justify-content: center;
+    transition: all 1000ms linear;
+}
+
+.box{
+    position: relative;
+    box-sizing: border-box;
+    width: 20vw;
+    height: 22vw;
+    background-color: rgb(68, 68, 68);
+    color: rgb(255, 255, 255);
+    transition:  transform, 1s, opacity 1s;
+    box-shadow:0px 2px 7px rgb(212, 212, 212);
+    border-radius: 5%;
+}
+
+.left_animation {
+    animation: moveleft 1s ease-in-out;
+}
+
+@keyframes moveleft {
+    100%{
+        transform: translateX(-12%);
+    }
+}
