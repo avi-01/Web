@@ -1,9 +1,16 @@
+import * as key from "./key.js"
+
 var flex = document.getElementById("flex");
 var box = flex.getElementsByClassName("box");
 var boxNumber = 6;
 
 
-restoreProperty = function (k) {
+restoreProperty(0);
+var flag = 0;
+var searchLocation = "Delhi";
+console.log(key.mapBoxApiToken)
+
+function restoreProperty (k) {
     var noBoxes = box.length;
 
     var scaleFactor = 0.3;
@@ -98,13 +105,8 @@ function deleteBox (k) {
 
         flag = 0;
     }, 1000);
-
-
-
 }
 
 
-restoreProperty(0);
-var flag = 0;
 
 
