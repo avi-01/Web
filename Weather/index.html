@@ -8,24 +8,41 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>Weather</title>
         <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;500;700;900&family=Poppins:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-
-        <div id="flex">
-            <div class="box">Hello this is box1</div>
-            <div class="box">Hello this is box2</div>
-            <div class="box">Hello this is box3</div>
-            <div class="box">Hello this is box4</div>
-            <div class="box">Hello this is box5</div>
+        <div class="circle-back"></div>
+        <div class="grid-container">
+            <div class="grid-item" id="header">
+                <div class="logo-container header-item">
+                    <img class="logo" src="res/logo.png">
+                </div>
+                <div class="date header-item"><strong>Sunday</strong>, 12th April</div>
+            </div>
+            <div class="grid-item" id="search">
+                <div class="search-container">
+                    <input type="search" class="location" value="Delhi">
+                    <i class="fa fa-search"></i>
+                </div>
+            </div>
+            <!-- <div class="grid-item" id="location">3</div> -->
+            <div class="grid-item" id="result">
+                <i class="fas fa-angle-left slideButton" id="leftslide" onclick=deleteBox(-1)></i>
+                <div id="flex">
+                    <div class="box">This is box1</div>
+                    <div class="box">This is box2</div>
+                    <div class="box">This is box3</div>
+                    <div class="box">This is box4</div>
+                    <div class="box">This is box5</div>
+                </div>
+                <i class="fas fa-angle-right slideButton" id="rightslide" onclick=deleteBox(1)></i>
+            </div>
         </div>
-        
 
-        <button onclick="deleteBox(-1)"> Click</button>
-        <button onclick="deleteBox(1)"> Click</button>
-
-        
-        <script src="main.js" async defer></script>
     </body>
+    <script src="main.js"></script>
 </html>
