@@ -273,6 +273,8 @@ function setBoxNumber() {
     console.log("Width "+width)
 
     if(width > 900) {
+        boxProperty.scaleFactor = 0.3;
+        boxProperty.scale = 1;
         boxNumber = 6;
     }
 
@@ -298,6 +300,24 @@ function setBoxNumber() {
 }
 
 
+async function loadData() {
+
+    console.log(weatherData)
+    var div = "";
+    for (var i = relativeDate - Math.round(boxNumber/2) + 1; i < relativeDate + Math.round(boxNumber/2) ; i++) {
+        div += await getBox(weatherData[i], i);
+    }
+    // console.log(div);
+
+
+    flex.innerHTML = div;
+
+    restoreProperty(0);
+
+}
+
+window.addEventListener('resize', () => {setBoxNumber();loadData()});
+
 searchButton.addEventListener("click", async () => {
 
     var searchedLocation = locationInput.value;
@@ -322,18 +342,9 @@ searchButton.addEventListener("click", async () => {
             return await weather.getWeather(locationDetail.latitude, locationDetail.longitude);
 
         }).then(async (weatherRecord) => {
-            console.log(weatherRecord)
+            
             weatherData = weatherRecord;
-            var div = "";
-            for (var i = relativeDate - Math.round(boxNumber/2) + 1; i < relativeDate + Math.round(boxNumber/2) ; i++) {
-                div += await getBox(weatherRecord[i], i);
-            }
-
-            // console.log(div);
-
-
-            flex.innerHTML = div;
-            restoreProperty(0);
+            await loadData();
 
             setTimeout(() => loader.style.opacity = "0", 200);
             loader.style.display = "none";
