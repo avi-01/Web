@@ -167,7 +167,7 @@ async function getBox(day, date) {
                         <div class="sep-line">|</div>
                         <div class="wind detail box-item">
                             <div class="detail-name">Wind</div>
-                            <div class="detail-value">${day['wind']} m/hr</div>
+                            <div class="detail-value">${day['wind']} m/s</div>
                         </div>
                     </div>`;
 
