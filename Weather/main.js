@@ -173,6 +173,19 @@ function deleteBox(k) {
 
     flag = 1;
     console.log(box)
+    if(relativeDate - k <= 0) {
+        leftSlide.style.visibility = "hidden";
+    }
+    else {
+        leftSlide.style.visibility = "visible";
+    }
+
+    if(relativeDate - k >= weatherData.length - 1) {
+        rightSlide.style.visibility = "hidden";
+    }
+    else {
+        rightSlide.style.visibility = "visible";
+    }
     var index = 0;
     var animations = ["left_animation", "right_animation"];
 
@@ -195,22 +208,8 @@ function deleteBox(k) {
 
     setTimeout(async function () {
 
-        if(relativeDate - k == 0) {
-            leftSlide.style.visibility = "hidden";
-        }
-        else {
-            leftSlide.style.visibility = "visible";
-        }
-
-        if(relativeDate - k == weatherData.length - 1) {
-            rightSlide.style.visibility = "hidden";
-        }
-        else {
-            rightSlide.style.visibility = "visible";
-        }
-
         removeTarget.parentNode.removeChild(removeTarget);
-        flex.classList.toggle(animations[(index == 0) ? 0 : 1];
+        flex.classList.toggle(animations[(index == 0) ? 0 : 1]);
 
         var boxDate = relativeDate - (k * Math.round(boxNumber / 2));
 
