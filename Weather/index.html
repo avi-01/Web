@@ -16,107 +16,38 @@
     </head>
     <body>
         <div class="circle-back"></div>
+
         <div class="grid-container">
+
+            <!-- Header -->
             <div class="grid-item" id="header">
                 <div class="logo-container header-item">
                     <img class="logo" src="res/logo.png">
                 </div>
-                <div class="date header-item"><strong>Sunday</strong>, 12th April</div>
+                <div class="header-item" id="date"><strong>Sunday</strong>, 12th April</div>
             </div>
+
+            <!-- Search -->
             <div class="grid-item" id="search">
                 <div class="search-container">
-                    <input type="search" class="location" value="Delhi">
-                    <i class="fa fa-search"></i>
+                    <input type="search" id="location" value="Delhi">
+                    <i class="fa fa-search" id="searchButton"></i>
                 </div>
             </div>
+
+            <div class="grid-item" id="loader">
+                <div class="circle-loader"></div>
+            </div>
+            
+            <!-- Result  -->
             <div class="grid-item" id="result">
-                <i class="fas fa-angle-left slideButton" id="leftslide" onclick=deleteBox(-1)></i>
+                <i class="fas fa-angle-left slideButton" id="leftslide"></i>
                 <div id="flex">
-                    
-                    
-                    <div class="box">
-                        <div class="weather-date box-item">Today</div>
-                        <div class="temp-desc box-item">
-                            <div class="temp">&nbsp;12<sup>o</sup></div>
-                            <div class="desc">Cloudy</div>
-                        </div>
-                        <div class="humid detail box-item">
-                            <div class="detail-name">Humidity</div>
-                            <div class="detail-value">64%</div>
-                        </div>
-                        <div class="sep-line">|</div>
-                        <div class="wind detail box-item">
-                            <div class="detail-name">Wind</div>
-                            <div class="detail-value">12 K/M</div>
-                        </div>
-                    </div>
-                    <div class="box">
-                        <div class="weather-date box-item">Today</div>
-                        <div class="temp-desc box-item">
-                            <div class="temp">&nbsp;12<sup>o</sup></div>
-                            <div class="desc">Cloudy</div>
-                        </div>
-                        <div class="humid detail box-item">
-                            <div class="detail-name">Humidity</div>
-                            <div class="detail-value">64%</div>
-                        </div>
-                        <div class="sep-line">|</div>
-                        <div class="wind detail box-item">
-                            <div class="detail-name">Wind</div>
-                            <div class="detail-value">12 K/M</div>
-                        </div>
-                    </div>
-                    <div class="box">
-                        <div class="weather-date box-item">Today</div>
-                        <div class="temp-desc box-item">
-                            <div class="temp">&nbsp;12<sup>o</sup></div>
-                            <div class="desc">Cloudy</div>
-                        </div>
-                        <div class="humid detail box-item">
-                            <div class="detail-name">Humidity</div>
-                            <div class="detail-value">64%</div>
-                        </div>
-                        <div class="sep-line">|</div>
-                        <div class="wind detail box-item">
-                            <div class="detail-name">Wind</div>
-                            <div class="detail-value">12 K/M</div>
-                        </div>
-                    </div>
-                    <div class="box">
-                        <div class="weather-date box-item">Today</div>
-                        <div class="temp-desc box-item">
-                            <div class="temp">&nbsp;12<sup>o</sup></div>
-                            <div class="desc">Cloudy</div>
-                        </div>
-                        <div class="humid detail box-item">
-                            <div class="detail-name">Humidity</div>
-                            <div class="detail-value">64%</div>
-                        </div>
-                        <div class="sep-line">|</div>
-                        <div class="wind detail box-item">
-                            <div class="detail-name">Wind</div>
-                            <div class="detail-value">12 K/M</div>
-                        </div>
-                    </div>
-                    <div class="box">
-                        <div class="weather-date box-item">Today</div>
-                        <div class="temp-desc box-item">
-                            <div class="temp">&nbsp;12<sup>o</sup></div>
-                            <div class="desc">Cloudy</div>
-                        </div>
-                        <div class="humid detail box-item">
-                            <div class="detail-name">Humidity</div>
-                            <div class="detail-value">64%</div>
-                        </div>
-                        <div class="sep-line">|</div>
-                        <div class="wind detail box-item">
-                            <div class="detail-name">Wind</div>
-                            <div class="detail-value">12 K/M</div>
-                        </div>
-                    </div>
                 </div>
-                <i class="fas fa-angle-right slideButton" id="rightslide" onclick=deleteBox(1)></i>
+                <i class="fas fa-angle-right slideButton" id="rightslide"></i>
             </div>
+
+
         </div>
 
     </body>
