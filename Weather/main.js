@@ -29,31 +29,40 @@ const weatherImage = {
     haze:1,
 }
 
+var boxProperty = {
+    scaleFactor : 0.3,
+    zIndexFactor : 1,
+    marginFactor : -2,
+    blurFactor : -1,
+
+    scale : 1,
+    zIndex : 1,
+    margin : 4,
+    blur : (boxNumber - 2)/2
+}
+
 
 setTodayDate();
-getDate(1588578)
+setBoxNumber();
+// restoreProperty(0);
 
 
 function restoreProperty(k) {
     var noBoxes = box.length;
+    var scaleFactor = boxProperty.scaleFactor;
+    var zIndexFactor = boxProperty.zIndexFactor;
+    var marginFactor = boxProperty.marginFactor;
+    var blurFactor = boxProperty.blurFactor;
 
-    var scaleFactor = 0.3;
-    var zIndexFactor = 1;
-    var marginFactor = -2;
-    var blurFactor = -1;
-
-    var scale = 1;
-    var zIndex = 1;
-    var margin = 4;
-    var blur = -1 * (parseInt(noBoxes / 2) * blurFactor);
-
-
-
-
+    var scale = boxProperty.scale;
+    var zIndex = boxProperty.zIndex;
+    var margin = boxProperty.margin;
+    var blur = boxProperty.blur;
+    console.log("blur"+ blur + " " + (boxNumber - 2)/ 2);
     for (var i = 0; i < noBoxes; i++) {
 
         var index = i - k;
-        // console.log(i,index,scale,zIndex,margin,blur,noBoxes/2)
+        console.log(i,index,scale,zIndex,margin,blur,noBoxes/2)
 
         if (index >= 0 && index < noBoxes) {
             box[index].style.transform = "scale(" + scale + ")";
@@ -203,7 +212,7 @@ function deleteBox(k) {
 
 
     removeTarget.style.opacity = "0";
-    removeTarget.style.transform = "scale(0.75)";
+    removeTarget.style.transform =  `scale(${boxProperty.scale - boxProperty.scaleFactor}) `;
 
 
     setTimeout(async function () {
@@ -256,6 +265,38 @@ function deleteBox(k) {
     }, 1000);
 }
 
+function setBoxNumber() {
+    var width = window.innerWidth
+    || document.documentElement.clientWidth
+    || document.body.clientWidth;
+
+    console.log("Width "+width)
+
+    if(width > 900) {
+        boxNumber = 6;
+    }
+
+    else if (width > 700) {
+        boxProperty.scaleFactor = 0.5;
+        boxProperty.scale = 1.5;
+        boxNumber = 4;
+    }
+
+    else if (width > 400) {
+        boxProperty.scaleFactor = 0.5;
+        boxProperty.scale = 2;
+        boxNumber = 4;
+    }
+
+    else {
+        boxProperty.scaleFactor = 1;
+        boxProperty.scale = 4;
+        boxNumber = 2;
+    }
+
+    boxProperty.blur = (boxNumber - 2)/2;
+}
+
 
 searchButton.addEventListener("click", async () => {
 
@@ -271,6 +312,7 @@ searchButton.addEventListener("click", async () => {
     setTimeout(() => loader.style.opacity = "1", 200);
 
     console.log(searchedLocation)
+    console.log(boxNumber)
 
     map.getCoordinates(searchedLocation)
         .then(async (locationDetail) => {
@@ -283,7 +325,7 @@ searchButton.addEventListener("click", async () => {
             console.log(weatherRecord)
             weatherData = weatherRecord;
             var div = "";
-            for (var i = boxNumber - 3; i < boxNumber + 2; i++) {
+            for (var i = relativeDate - Math.round(boxNumber/2) + 1; i < relativeDate + Math.round(boxNumber/2) ; i++) {
                 div += await getBox(weatherRecord[i], i);
             }
 
