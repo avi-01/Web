@@ -58,11 +58,11 @@ function restoreProperty(k) {
     var zIndex = boxProperty.zIndex;
     var margin = boxProperty.margin;
     var blur = boxProperty.blur;
-    console.log("blur"+ blur + " " + (boxNumber - 2)/ 2);
+    //console.log("blur"+ blur + " " + (boxNumber - 2)/ 2);
     for (var i = 0; i < noBoxes; i++) {
 
         var index = i - k;
-        console.log(i,index,scale,zIndex,margin,blur,noBoxes/2)
+        //console.log(i,index,scale,zIndex,margin,blur,noBoxes/2)
 
         if (index >= 0 && index < noBoxes) {
             box[index].style.transform = "scale(" + scale + ")";
@@ -106,7 +106,7 @@ function setTodayDate() {
 
     var day = weekday[today.getDay()];
     var date = today.getDate() + "th " + monthNames[today.getMonth()]
-    console.log(dateHeader)
+    //console.log(dateHeader)
     dateHeader.innerHTML = "<strong>" + day + "</strong></strong>, " + date;
 }
 
@@ -143,7 +143,7 @@ async function getBox(day, date) {
     var imgPath = imgLoc;
     var desc = day['desc'].toLowerCase();
     
-    console.log(desc, weatherImage[desc])
+    //console.log(desc, weatherImage[desc])
 
     if(weatherImage[desc] == 1) {
         imgPath += desc+".jpg";
@@ -151,7 +151,7 @@ async function getBox(day, date) {
     else {
         imgPath += "weather.jpg";
     }
-    console.log(imgPath)
+    //console.log(imgPath)
 
 
     var divString = `<div class="box" style="background-image: url(${imgPath});">
@@ -181,7 +181,7 @@ function deleteBox(k) {
     }
 
     flag = 1;
-    console.log(box)
+    //console.log(box)
     if(relativeDate - k <= 0) {
         leftSlide.style.visibility = "hidden";
     }
@@ -253,13 +253,13 @@ function deleteBox(k) {
         }
 
         
-        console.log(relativeDate, relativeDate - Math.round(boxNumber / 2),relativeDate + Math.round(boxNumber / 2))
+        //console.log(relativeDate, relativeDate - Math.round(boxNumber / 2),relativeDate + Math.round(boxNumber / 2))
 
         
 
 
         restoreProperty(0)
-        console.log(flex)
+        //console.log(flex)
 
         flag = 0;
     }, 1000);
@@ -270,7 +270,7 @@ function setBoxNumber() {
     || document.documentElement.clientWidth
     || document.body.clientWidth;
 
-    console.log("Width "+width)
+    //console.log("Width "+width)
 
     if(width > 900) {
         boxProperty.scaleFactor = 0.3;
@@ -302,7 +302,7 @@ function setBoxNumber() {
 
 async function loadData() {
 
-    console.log(weatherData)
+    //console.log(weatherData)
     var div = "";
     for (var i = relativeDate - Math.round(boxNumber/2) + 1; i < relativeDate + Math.round(boxNumber/2) ; i++) {
         div += await getBox(weatherData[i], i);
@@ -331,8 +331,8 @@ searchButton.addEventListener("click", async () => {
     loader.style.display = "flex";
     setTimeout(() => loader.style.opacity = "1", 200);
 
-    console.log(searchedLocation)
-    console.log(boxNumber)
+    //console.log(searchedLocation)
+    //console.log(boxNumber)
 
     map.getCoordinates(searchedLocation)
         .then(async (locationDetail) => {

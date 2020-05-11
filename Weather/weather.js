@@ -25,7 +25,7 @@ const getForecast = async (weatherUrl, weatherRecord) => {
         return response.text();
     }).then(function(text) {
         
-        console.log(JSON.parse(text))
+        //console.log(JSON.parse(text))
         var res = JSON.parse(text)['daily'];
 
         res.forEach(day => {
@@ -45,7 +45,7 @@ async function getPastData (weatherRecord,lat,long) {
     currentEpoch = Math.round(currentEpoch/1000);
     currentEpoch -= 6*epochDay ;
     
-    console.log(currentEpoch)
+    //console.log(currentEpoch)
 
     for(var i=0;i<5;i++) {
         currentEpoch += epochDay;
@@ -73,7 +73,7 @@ async function getWeather (lat, long) {
 
     await getPastData(weatherRecord,lat,long)
     .then( () => {
-        console.log(weatherRecord)
+        //console.log(weatherRecord)
     }).catch ((e) => {
         throw new Error(e);
     });
@@ -82,7 +82,7 @@ async function getWeather (lat, long) {
 
     await getForecast(forecastUrl, weatherRecord)
     .then( () => {
-        console.log(weatherRecord)
+        //console.log(weatherRecord)
     }).catch ((e) => {
         throw new Error(e);
     });

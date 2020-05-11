@@ -25,12 +25,12 @@ const getCoordinates = (address) => {
                     location: res.features[0].place_name
                 }
     
-                console.log(locationDetail)
+                //console.log(locationDetail)
                 
                 return resolve(locationDetail);
             }
         }).catch ((e) => {
-            console.log("E" + e)
+            //console.log("E" + e)
             return reject("Error Occured");
         }) ;
     })
