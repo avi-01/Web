@@ -284,7 +284,7 @@ function setBoxNumber() {
         boxNumber = 4;
     }
 
-    else if (width > 400) {
+    else if (width > 500) {
         boxProperty.scaleFactor = 0.5;
         boxProperty.scale = 2;
         boxNumber = 4;
