@@ -1,0 +1,80 @@
+@import "var.css";
+
+#home { 
+    font-size: 1em;
+    display: grid;
+    grid-template-rows: 2fr auto;
+    grid-template-columns: 1fr 1fr;
+    font-family: 'Lato';
+}
+
+.about {
+    font-size: min(3vh,2vw);
+    justify-self: center;
+    align-self: center;
+    padding: 2em 0em;
+    margin: 0 2em;
+}
+
+.intro {
+    color: var(--darkfont);
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    font-size: 4em;
+}
+
+#apostrophe {
+    color: var(--apostrophe);
+}
+
+.detail {
+    padding: 1em 0em;
+    font-size: 1.5em;
+    letter-spacing: 0.05em;
+    color: var(--lightfont);
+}
+
+.profile {
+    justify-self: center;
+    align-self: center;
+}
+
+.profilepicContainer {
+    width: 100%;
+    font-size: min(4vw,4vh);
+    text-align: center;
+}
+
+.profilepic {
+    border-radius: 50%;
+    width: 8em;
+    height: 8em;
+    box-shadow: 8px 1px 2px var(--mediumback);
+}
+
+
+.profilelinks {
+    display: flex;
+    justify-content: space-around;
+}
+
+.fab {
+    font-size: 1.75em;
+    padding: 1em;
+    color: var(--mediumback);
+}
+
+.fab:hover {
+    font-size: 2em;
+    color: var(--lightfont);
+}
+
+.quote {
+    grid-column: 1/3;
+    align-self: end;
+    justify-self: center;
+    margin: 2em 0;
+    font-size: 1.3em;
+    letter-spacing: 0.1em;
+    color: var(--darkfont);
+}
