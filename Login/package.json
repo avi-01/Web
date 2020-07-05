@@ -1,0 +1,17 @@
+{
+  "name": "Login",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "test": "node src/app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.9.21",
+    "validator": "^13.1.1"
+  }
+}

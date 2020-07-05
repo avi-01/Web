@@ -316,7 +316,7 @@ async function loadData() {
 
 }
 
-window.addEventListener('resize', () => {setBoxNumber();loadData()});
+    window.addEventListener('resize', () => {setBoxNumber();loadData()});
 
 searchButton.addEventListener("click", async () => {
 
